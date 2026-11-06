@@ -1,10 +1,11 @@
 const fs = require('fs');
-const { browserSync } = require('vibium');
+const { browser } = require('vibium/sync');
 
-const vibe = browserSync.launch();
+const bro = browser.start();
+const vibe = bro.page();
 vibe.go('https://google.com');
 
 const png = vibe.screenshot();
 fs.writeFileSync('screenshot.png', png);
 
-vibe.quit();
+bro.stop();
